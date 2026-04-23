@@ -4,3 +4,8 @@
 
 ### Assembly artifacts ###
 **/build/
+**/generated/
+
+### Help file ###
+help.md
+log.*

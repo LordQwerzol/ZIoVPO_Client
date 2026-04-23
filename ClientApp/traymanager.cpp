@@ -62,5 +62,5 @@ void TrayManager::onOpen()
 
 void TrayManager::onExit()
 {
-    qApp->quit();
+    ServiceClient::StopService();
 }
