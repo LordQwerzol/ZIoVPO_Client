@@ -1,5 +1,10 @@
 <RCC>
     <qresource prefix="/rec">
         <file>resources/appIcon.png</file>
+        <file>resources/appIcon.ico</file>
+        <file>resources/pass_of.png</file>
+        <file>resources/pass_on.png</file>
+        <file>resources/event.png</file>
+        <file>resources/login.png</file>
     </qresource>
 </RCC>

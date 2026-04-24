@@ -111,3 +111,94 @@ bool ServiceClient::StopService() {
     ServiceRpc_BindingHandle = nullptr;
     return true;
 }
+
+static RPC_BINDING_HANDLE GetRpcBinding() {
+    RPC_WSTR pszStringBinding = nullptr;
+    RPC_STATUS status = RpcStringBindingComposeW(nullptr, (RPC_WSTR)L"ncalrpc", nullptr,
+                                                  (RPC_WSTR)RPC_ENDPOINT, nullptr, &pszStringBinding);
+    if (status != RPC_S_OK) return nullptr;
+    RPC_BINDING_HANDLE hBinding = nullptr;
+    status = RpcBindingFromStringBindingW(pszStringBinding, &hBinding);
+    RpcStringFreeW(&pszStringBinding);
+    return (status == RPC_S_OK) ? hBinding : nullptr;
+}
+
+int ServiceClient::GetCurrentUser(std::wstring& outUsername, std::wstring& errorMessage) {
+    RPC_BINDING_HANDLE hBinding = GetRpcBinding();
+    if (!hBinding) return -1;
+
+    AuthInfo result;
+    int ret = ::GetCurrentUser(hBinding, &result);
+    RpcBindingFree(&hBinding);
+
+    if (ret == 0) {
+        outUsername = result.username;
+        return 0;
+    } else {
+        errorMessage = result.errorMessage;
+        return -1;
+    }
+}
+
+int ServiceClient::GetLicenseStatus(std::wstring& outStatus, std::wstring& outExpirationDate, std::wstring& errorMessage) {
+    RPC_BINDING_HANDLE hBinding = GetRpcBinding();
+    if (!hBinding) return -1;
+
+    LicenseInfo result;
+    int ret = ::GetLicenseStatus(hBinding, &result);
+    RpcBindingFree(&hBinding);
+
+    if (ret == 0) {
+        outStatus = result.status;
+        outExpirationDate = result.expirationDate;
+        return 0;
+    } else {
+        errorMessage = result.errorMessage;
+        return -1;
+    }
+}
+
+int ServiceClient::Login(const std::wstring& username, const std::wstring& password,
+                         std::wstring& outUsername, std::wstring& errorMessage) {
+    RPC_BINDING_HANDLE hBinding = GetRpcBinding();
+    if (!hBinding) return -1;
+
+    AuthInfo result;
+    int ret = ::Login(hBinding, username.c_str(), password.c_str(), &result);
+    RpcBindingFree(&hBinding);
+
+    if (ret == 0) {
+        outUsername = result.username;
+        return 0;
+    } else {
+        errorMessage = result.errorMessage;
+        return -1;
+    }
+}
+
+void ServiceClient::Logout() {
+    RPC_BINDING_HANDLE hBinding = GetRpcBinding();
+    if (!hBinding) return;
+    ::Logout(hBinding);
+    RpcBindingFree(&hBinding);
+}
+
+int ServiceClient::ActivateProduct(const std::wstring& activationCode,
+                                   std::wstring& outStatus, std::wstring& outExpirationDate,
+                                   std::wstring& errorMessage) {
+    RPC_BINDING_HANDLE hBinding = GetRpcBinding();
+    if (!hBinding) return -1;
+
+    LicenseInfo result;
+    int ret = ::ActivateProduct(hBinding, activationCode.c_str(), &result);
+    RpcBindingFree(&hBinding);
+
+    if (ret == 0) {
+        outStatus = result.status;
+        outExpirationDate = result.expirationDate;
+        return 0;
+    } else {
+        errorMessage = result.errorMessage;
+        return -1;
+    }
+}

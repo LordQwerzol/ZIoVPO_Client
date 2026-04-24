@@ -1,9 +1,6 @@
 // UiClientManager.h
 #pragma once
 #include "pch.h"
-#include <string>
-#include <vector>
-#include <mutex>
 
 // Управляет запуском графического приложения во всех активных сессиях (кроме 0)
 // и при новых входах пользователей. Сохраняет дескрипторы запущенных процессов

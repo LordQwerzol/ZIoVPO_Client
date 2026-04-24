@@ -134,6 +134,8 @@ bool WinService::Initialize()
 // Удаление всех объектов
 void WinService::Shutdown()
 {
+    AuthManager::GetInstance().StopRefreshThread();
+    LicenseManager::GetInstance().StopRefreshThread();
     if (m_pRpcServer) m_pRpcServer->Stop();
     if (m_pUiClientManager) m_pUiClientManager->TerminateAllClients();
     if (m_hStopEvent) CloseHandle(m_hStopEvent);

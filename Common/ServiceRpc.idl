@@ -1,3 +1,4 @@
+import "wtypes.idl";
 [
     uuid(bbaa28c5-54bd-406f-bb11-8f32820d36ce),
     version(1.0),
@@ -6,4 +7,40 @@
 interface ServiceRpc
 {
     void StopService();
+
+    typedef struct _AuthInfo {
+        WCHAR username[256];
+        WCHAR errorMessage[1024];
+    } AuthInfo;
+
+    typedef struct _LicenseInfo {
+        WCHAR status[64];
+        WCHAR expirationDate[32];
+        WCHAR errorMessage[1024];
+    } LicenseInfo;
+
+    int Login(
+        [in] handle_t hBinding,
+        [in, string] const WCHAR* username,
+        [in, string] const WCHAR* password,
+        [out] AuthInfo* result
+    );
+
+    void Logout([in] handle_t hBinding);
+
+    int GetCurrentUser(
+        [in] handle_t hBinding,
+        [out] AuthInfo* result
+    );
+
+    int GetLicenseStatus(
+        [in] handle_t hBinding,
+        [out] LicenseInfo* result
+    );
+
+    int ActivateProduct(
+        [in] handle_t hBinding,
+        [in, string] const WCHAR* activationCode,
+        [out] LicenseInfo* result
+    );
 }
