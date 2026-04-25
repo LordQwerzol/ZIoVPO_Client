@@ -3,6 +3,7 @@
 
 #include <QObject>
 #include <QSystemTrayIcon>
+#include "ServiceClient.h"
 
 class QSystemTrayIcon;
 class QMenu;
@@ -22,6 +23,9 @@ private slots:
     void onActivated(QSystemTrayIcon::ActivationReason reason);
     void onOpen();
     void onExit();
+
+signals:
+    void exitRequested();
 
 private:
     QSystemTrayIcon *m_trayIcon;

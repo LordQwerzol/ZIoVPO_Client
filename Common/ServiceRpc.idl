@@ -1,0 +1,9 @@
+[
+    uuid(bbaa28c5-54bd-406f-bb11-8f32820d36ce),
+    version(1.0),
+    implicit_handle(handle_t ServiceRpc_BindingHandle)
+]
+interface ServiceRpc
+{
+    void StopService();
+}
