@@ -3,6 +3,9 @@
 #include "pch.h"
 #include "RpcServer.h"
 #include "UiClientManager.h"
+#include "AuthManager.h"
+#include "LicenseManager.h"
+#include "HttpClient.h"
 
 class WinService
 {

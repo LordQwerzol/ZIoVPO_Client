@@ -20,6 +20,7 @@ qt_add_executable(ClientApp
     TaskbarCreatedFilter.h
     ServiceClient.h ServiceClient.cpp
     ${APP_ICON_RC}
+    authdialog.h authdialog.cpp authdialog.ui
 )
 
 set(APP_ICON_RC "${APP_RESOURCES}/app_icon.rc")

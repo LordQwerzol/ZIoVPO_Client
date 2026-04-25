@@ -1,6 +1,7 @@
 ### IDE ###
 .qtcreator/
 .idea
+.vscode
 
 ### Assembly artifacts ###
 **/build/
