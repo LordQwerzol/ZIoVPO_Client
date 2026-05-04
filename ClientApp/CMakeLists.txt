@@ -34,6 +34,7 @@ target_link_libraries(ClientApp
         advapi32
         wtsapi32
         user32
+        advapi32
 )
 
 install(TARGETS ClientApp

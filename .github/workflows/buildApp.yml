@@ -39,3 +39,13 @@ jobs:
         with:
           name: ZIoVPO-deploy
           path: ${{ github.workspace }}/ZIoVPO_deploy
+
+      - name: Create MSI installer using CPack
+        working-directory: ${{ github.workspace }}/build/Release
+        run: cpack -G WIX -C Release
+
+      - name: Upload MSI installer
+        uses: actions/upload-artifact@v4
+        with:
+          name: ZIoVPO-installer
+          path: ${{ github.workspace }}/build/Release/packages/*.msi
