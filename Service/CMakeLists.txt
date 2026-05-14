@@ -1,3 +1,6 @@
+set(APP_ICON_RC "../ClientApp/resources/service_icon.rc")
+
+
 add_executable(ZIoVPOService
     src/WinService.cpp
     src/RpcServer.cpp
@@ -7,6 +10,7 @@ add_executable(ZIoVPOService
     src/LicenseManager.cpp
     src/HttpClient.cpp
     src/main.cpp
+    ${APP_ICON_RC}
 )
 
 include(FetchContent)

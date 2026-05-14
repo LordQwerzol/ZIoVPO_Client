@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "AuthDialog.h"
+#include "DesktopManager.h"
 #include <QDebug>
 #include <QFile>
 #include <QLabel>
@@ -12,13 +13,19 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
     createStatusBar();
-    connect(ui->actionExit, &QAction::triggered, this, [this]() {ServiceClient::StopService();});
+    connect(ui->actionExit, &QAction::triggered, this, &MainWindow::onExit);
     connect(ui->actionLogout, &QAction::triggered, this, &MainWindow::onLogout);
 }
 
 MainWindow::~MainWindow()
 {
     delete ui;
+}
+
+void MainWindow::onExit()
+{
+    if (DesktopManager::confirmation())
+        ServiceClient::StopService();
 }
 
 void MainWindow::showEvent(QShowEvent *event)

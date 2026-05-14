@@ -28,6 +28,7 @@ signals:
 private slots:
     void updateWindow();
     void onLogout();
+    void onExit();
 
 protected:
     void showEvent(QShowEvent *event) override;

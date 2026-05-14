@@ -30,6 +30,9 @@ private slots:
     void slotLogin();
     void slotActivate();
 
+protected:
+    void reject() override; 
+
 private:
     Ui::AuthDialog *ui;
     Mode m_mode;

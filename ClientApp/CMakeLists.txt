@@ -21,6 +21,7 @@ qt_add_executable(ClientApp
     ServiceClient.h ServiceClient.cpp
     ${APP_ICON_RC}
     authdialog.h authdialog.cpp authdialog.ui
+    DesktopManager.h DesktopManager.cpp
 )
 
 set(APP_ICON_RC "${APP_RESOURCES}/app_icon.rc")
@@ -36,6 +37,8 @@ target_link_libraries(ClientApp
         user32
         advapi32
 )
+
+target_compile_options(ClientApp PRIVATE /utf-8)
 
 install(TARGETS ClientApp
     BUNDLE  DESTINATION .
