@@ -6,6 +6,7 @@
 #include "AuthManager.h"
 #include "LicenseManager.h"
 #include "HttpClient.h"
+#include "DatabaseLoader.h"
 
 class WinService
 {

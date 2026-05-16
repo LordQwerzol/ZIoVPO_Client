@@ -19,6 +19,25 @@ interface ServiceRpc
         WCHAR errorMessage[1024];
     } LicenseInfo;
 
+    typedef struct _DatabaseInfo
+    {
+        unsigned __int64 timestamp;
+        unsigned long recordCount;
+        WCHAR errorMessage[1024];
+    } DatabaseInfo;
+
+    typedef struct _ThreatInfoRpc {
+        [string] wchar_t* filePath;
+        [string] wchar_t* threatName;
+        [string] wchar_t* objectTypeString;
+    } ThreatInfoRpc;
+
+    typedef struct _ScanResultRpc {
+        unsigned long threatsCount;
+        [size_is(threatsCount)] ThreatInfoRpc* threats;
+        wchar_t errorMessage[256];
+    } ScanResultRpc;
+
     int Login(
         [in] handle_t hBinding,
         [in, string] const WCHAR* username,
@@ -43,4 +62,16 @@ interface ServiceRpc
         [in, string] const WCHAR* activationCode,
         [out] LicenseInfo* result
     );
+
+    int GetDatabaseInfo(
+        [in] handle_t hBinding,
+        [out] DatabaseInfo* result
+    );
+
+    int ScanPath(
+        [in] handle_t hBinding,
+        [in, string] const wchar_t* path,
+        [out] ScanResultRpc* result
+    );
+
 }

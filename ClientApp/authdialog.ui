@@ -508,7 +508,7 @@
       <enum>QFrame::Shadow::Plain</enum>
      </property>
      <property name="currentIndex">
-      <number>1</number>
+      <number>0</number>
      </property>
      <widget class="QWidget" name="pageAuth">
       <layout class="QVBoxLayout" name="verticalLayout">
@@ -576,6 +576,9 @@
            <property name="inputMask">
             <string/>
            </property>
+           <property name="text">
+            <string/>
+           </property>
            <property name="placeholderText">
             <string>user@example.com</string>
            </property>
@@ -595,6 +598,9 @@
           <layout class="QHBoxLayout" name="horizontalLayout_3">
            <item>
             <widget class="QLineEdit" name="txtPass">
+             <property name="text">
+              <string/>
+             </property>
              <property name="echoMode">
               <enum>QLineEdit::EchoMode::Password</enum>
              </property>

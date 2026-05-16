@@ -6,9 +6,15 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>734</width>
-    <height>532</height>
+    <width>898</width>
+    <height>714</height>
    </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
   </property>
   <property name="palette">
    <palette>
@@ -498,16 +504,650 @@
     <height>128</height>
    </size>
   </property>
-  <widget class="QWidget" name="centralwidget"/>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QHBoxLayout" name="horizontalLayout">
+    <item>
+     <widget class="QStackedWidget" name="stackedWidget">
+      <property name="currentIndex">
+       <number>1</number>
+      </property>
+      <widget class="QWidget" name="pageTable">
+       <layout class="QVBoxLayout" name="verticalLayout">
+        <item>
+         <widget class="QTableWidget" name="tableWidget">
+          <property name="editTriggers">
+           <set>QAbstractItemView::EditTrigger::NoEditTriggers</set>
+          </property>
+          <property name="tabKeyNavigation">
+           <bool>true</bool>
+          </property>
+          <property name="showDropIndicator" stdset="0">
+           <bool>true</bool>
+          </property>
+          <property name="dragEnabled">
+           <bool>false</bool>
+          </property>
+          <property name="textElideMode">
+           <enum>Qt::TextElideMode::ElideLeft</enum>
+          </property>
+          <property name="showGrid">
+           <bool>true</bool>
+          </property>
+          <property name="gridStyle">
+           <enum>Qt::PenStyle::SolidLine</enum>
+          </property>
+          <attribute name="horizontalHeaderVisible">
+           <bool>true</bool>
+          </attribute>
+          <attribute name="horizontalHeaderCascadingSectionResizes">
+           <bool>false</bool>
+          </attribute>
+          <attribute name="horizontalHeaderHighlightSections">
+           <bool>true</bool>
+          </attribute>
+          <attribute name="horizontalHeaderShowSortIndicator" stdset="0">
+           <bool>false</bool>
+          </attribute>
+          <attribute name="horizontalHeaderStretchLastSection">
+           <bool>true</bool>
+          </attribute>
+          <attribute name="verticalHeaderVisible">
+           <bool>false</bool>
+          </attribute>
+          <attribute name="verticalHeaderCascadingSectionResizes">
+           <bool>false</bool>
+          </attribute>
+          <attribute name="verticalHeaderShowSortIndicator" stdset="0">
+           <bool>false</bool>
+          </attribute>
+          <attribute name="verticalHeaderStretchLastSection">
+           <bool>false</bool>
+          </attribute>
+          <row>
+           <property name="text">
+            <string>пвапв</string>
+           </property>
+          </row>
+          <row>
+           <property name="text">
+            <string>Новая строка</string>
+           </property>
+          </row>
+          <row>
+           <property name="text">
+            <string>Новая строка</string>
+           </property>
+          </row>
+          <row>
+           <property name="text">
+            <string>Новая строка</string>
+           </property>
+          </row>
+          <row>
+           <property name="text">
+            <string>Новая строка</string>
+           </property>
+          </row>
+          <row>
+           <property name="text">
+            <string>Новая строка</string>
+           </property>
+          </row>
+          <row>
+           <property name="text">
+            <string>Новая строка</string>
+           </property>
+          </row>
+          <column>
+           <property name="text">
+            <string>№</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Тип файла</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Имя угрозы</string>
+           </property>
+          </column>
+          <column>
+           <property name="text">
+            <string>Путь к файлу</string>
+           </property>
+          </column>
+          <item row="0" column="0">
+           <property name="text">
+            <string>1</string>
+           </property>
+          </item>
+          <item row="0" column="1">
+           <property name="text">
+            <string>PE</string>
+           </property>
+          </item>
+          <item row="0" column="2">
+           <property name="text">
+            <string>sdfs</string>
+           </property>
+          </item>
+          <item row="0" column="3">
+           <property name="text">
+            <string>file:///C:/Users/Alex/Documents/Шаблоны для презентации/Present-template.pptx</string>
+           </property>
+          </item>
+          <item row="1" column="0">
+           <property name="text">
+            <string>2</string>
+           </property>
+          </item>
+          <item row="1" column="1">
+           <property name="text">
+            <string>ff</string>
+           </property>
+          </item>
+          <item row="1" column="2">
+           <property name="text">
+            <string>sdf</string>
+           </property>
+          </item>
+          <item row="1" column="3">
+           <property name="text">
+            <string>file:///C:/Users/Alex/Documents/Шаблоны для презентации/Present-template.pptx</string>
+           </property>
+          </item>
+          <item row="2" column="0">
+           <property name="text">
+            <string>3</string>
+           </property>
+          </item>
+          <item row="2" column="1">
+           <property name="text">
+            <string>dfdf</string>
+           </property>
+          </item>
+          <item row="2" column="2">
+           <property name="text">
+            <string>выавыа</string>
+           </property>
+          </item>
+          <item row="2" column="3">
+           <property name="text">
+            <string>file:///C:/Users/Alex/Documents/Шаблоны для презентации/Present-template.pptx</string>
+           </property>
+          </item>
+          <item row="3" column="0">
+           <property name="text">
+            <string>4</string>
+           </property>
+          </item>
+          <item row="3" column="1">
+           <property name="text">
+            <string>ываыва</string>
+           </property>
+          </item>
+          <item row="3" column="2">
+           <property name="text">
+            <string>выаыва</string>
+           </property>
+          </item>
+          <item row="3" column="3">
+           <property name="text">
+            <string>file:///C:/Users/Alex/Documents/Шаблоны для презентации/Present-template.pptx</string>
+           </property>
+          </item>
+          <item row="4" column="0">
+           <property name="text">
+            <string>5</string>
+           </property>
+          </item>
+          <item row="4" column="1">
+           <property name="text">
+            <string>fdf</string>
+           </property>
+          </item>
+          <item row="4" column="2">
+           <property name="text">
+            <string>sdfdsf</string>
+           </property>
+          </item>
+          <item row="4" column="3">
+           <property name="text">
+            <string>file:///C:/Users/Alex/Documents/Шаблоны для презентации/Present-template.pptx</string>
+           </property>
+          </item>
+          <item row="5" column="0">
+           <property name="text">
+            <string>6</string>
+           </property>
+          </item>
+          <item row="5" column="1">
+           <property name="text">
+            <string>fdf</string>
+           </property>
+          </item>
+          <item row="5" column="2">
+           <property name="text">
+            <string>sddsf</string>
+           </property>
+          </item>
+          <item row="5" column="3">
+           <property name="text">
+            <string>file:///C:/Users/Alex/Documents/Шаблоны для презентации/Present-template.pptx</string>
+           </property>
+          </item>
+          <item row="6" column="0">
+           <property name="text">
+            <string>7</string>
+           </property>
+          </item>
+          <item row="6" column="1">
+           <property name="text">
+            <string>df</string>
+           </property>
+          </item>
+          <item row="6" column="2">
+           <property name="text">
+            <string>sdfsdf</string>
+           </property>
+          </item>
+          <item row="6" column="3">
+           <property name="text">
+            <string>file:///C:/Users/Alex/Documents/Шаблоны для презентации/Present-template.pptx</string>
+           </property>
+          </item>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="pageWelcome">
+       <layout class="QVBoxLayout" name="verticalLayout_6">
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_7">
+          <item>
+           <spacer name="horizontalSpacer_4">
+            <property name="orientation">
+             <enum>Qt::Orientation::Horizontal</enum>
+            </property>
+            <property name="sizeType">
+             <enum>QSizePolicy::Policy::Minimum</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QLabel" name="label_6">
+            <property name="font">
+             <font>
+              <family>Arial</family>
+              <pointsize>16</pointsize>
+             </font>
+            </property>
+            <property name="text">
+             <string>Добро пожаловать в Антивирус!</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer_5">
+            <property name="orientation">
+             <enum>Qt::Orientation::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <spacer name="verticalSpacer_6">
+          <property name="orientation">
+           <enum>Qt::Orientation::Vertical</enum>
+          </property>
+          <property name="sizeType">
+           <enum>QSizePolicy::Policy::Minimum</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>40</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item>
+         <widget class="QLabel" name="label_7">
+          <property name="text">
+           <string>Ваша безопасность — под надёжной защитой. Приложение работает как Windows-служба с RPC-интерфейсом, автоматически запускается при загрузке и надёжно скрыто от посторонних.
+
+Ключевые возможности:
+
+    🔒 Аутентификация и лицензии — вход через HTTPS, JWT-токены в памяти, проверка и обновление лицензий без сохранения на диск.
+
+    🧠 Интеллектуальное сканирование — файлы, папки, диски (в т.ч. все несъёмные). Алгоритм на красно-чёрном дереве с проверкой хэшей и типов объектов (PE, .NET, Java, Python, JS, PowerShell).
+
+    ⏱️ Фоновый мониторинг — защита выбранных директорий, сканирование по расписанию (опционально).
+
+    🖥️ Удобный трей — иконка в области уведомлений, главное окно по клику, контекстное меню «Открыть» / «Выход». При закрытии окно сворачивается в трей.
+
+    🚀 Стабильность — единственный экземпляр для пользователя, самовосстановление иконки, защита процессов от завершения.
+
+Служба запускает графическое приложение в каждой активной сессии пользователя, а вы управляете защитой через интуитивно понятный интерфейс.</string>
+          </property>
+          <property name="textFormat">
+           <enum>Qt::TextFormat::PlainText</enum>
+          </property>
+          <property name="scaledContents">
+           <bool>false</bool>
+          </property>
+          <property name="alignment">
+           <set>Qt::AlignmentFlag::AlignLeading|Qt::AlignmentFlag::AlignLeft|Qt::AlignmentFlag::AlignVCenter</set>
+          </property>
+          <property name="wordWrap">
+           <bool>true</bool>
+          </property>
+          <property name="margin">
+           <number>0</number>
+          </property>
+          <property name="indent">
+           <number>-1</number>
+          </property>
+          <property name="openExternalLinks">
+           <bool>false</bool>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <spacer name="verticalSpacer_5">
+          <property name="orientation">
+           <enum>Qt::Orientation::Vertical</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>166</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="pageSchedule">
+       <layout class="QVBoxLayout" name="verticalLayout_5">
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_2">
+          <item>
+           <spacer name="horizontalSpacer">
+            <property name="orientation">
+             <enum>Qt::Orientation::Horizontal</enum>
+            </property>
+            <property name="sizeType">
+             <enum>QSizePolicy::Policy::Minimum</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QLabel" name="label">
+            <property name="font">
+             <font>
+              <family>Arial</family>
+              <pointsize>16</pointsize>
+             </font>
+            </property>
+            <property name="text">
+             <string>Настройка мониторинка по расписанию</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer_2">
+            <property name="orientation">
+             <enum>Qt::Orientation::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <spacer name="verticalSpacer_4">
+          <property name="orientation">
+           <enum>Qt::Orientation::Vertical</enum>
+          </property>
+          <property name="sizeType">
+           <enum>QSizePolicy::Policy::Minimum</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>40</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="horizontalLayout_6">
+          <item>
+           <layout class="QVBoxLayout" name="verticalLayout_4">
+            <item>
+             <spacer name="verticalSpacer_2">
+              <property name="orientation">
+               <enum>Qt::Orientation::Vertical</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>20</width>
+                <height>40</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+            <item>
+             <layout class="QVBoxLayout" name="verticalLayout_2">
+              <item>
+               <layout class="QHBoxLayout" name="horizontalLayout_3">
+                <item>
+                 <widget class="QLabel" name="label_2">
+                  <property name="text">
+                   <string>Укажите папки для сканирования</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QPushButton" name="cmdFindFloders">
+                  <property name="toolTip">
+                   <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Выбор папок&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                  </property>
+                  <property name="text">
+                   <string/>
+                  </property>
+                  <property name="icon">
+                   <iconset theme="folder-new"/>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <spacer name="horizontalSpacer_3">
+                  <property name="orientation">
+                   <enum>Qt::Orientation::Horizontal</enum>
+                  </property>
+                  <property name="sizeHint" stdset="0">
+                   <size>
+                    <width>40</width>
+                    <height>20</height>
+                   </size>
+                  </property>
+                 </spacer>
+                </item>
+               </layout>
+              </item>
+              <item>
+               <layout class="QHBoxLayout" name="horizontalLayout_4">
+                <item>
+                 <widget class="QLabel" name="label_4">
+                  <property name="text">
+                   <string>Выберете время сканирования</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QTimeEdit" name="timeEdit"/>
+                </item>
+               </layout>
+              </item>
+              <item>
+               <layout class="QHBoxLayout" name="horizontalLayout_5">
+                <item>
+                 <widget class="QLabel" name="label_5">
+                  <property name="text">
+                   <string>Выберете интервал</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QComboBox" name="comboBox">
+                  <item>
+                   <property name="text">
+                    <string>Ежедневно</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>Ежемесячно</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>Ежечастно</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>Еженедельно</string>
+                   </property>
+                  </item>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+             </layout>
+            </item>
+            <item>
+             <spacer name="verticalSpacer">
+              <property name="orientation">
+               <enum>Qt::Orientation::Vertical</enum>
+              </property>
+              <property name="sizeHint" stdset="0">
+               <size>
+                <width>20</width>
+                <height>40</height>
+               </size>
+              </property>
+             </spacer>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QVBoxLayout" name="verticalLayout_3">
+            <item>
+             <widget class="QLabel" name="label_3">
+              <property name="text">
+               <string>Выбранные папки</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QListWidget" name="listWidget"/>
+            </item>
+           </layout>
+          </item>
+         </layout>
+        </item>
+        <item>
+         <spacer name="verticalSpacer_3">
+          <property name="orientation">
+           <enum>Qt::Orientation::Vertical</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>20</width>
+            <height>140</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+    </item>
+   </layout>
+  </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>734</width>
+     <width>898</width>
      <height>33</height>
     </rect>
    </property>
+   <widget class="QMenu" name="menuVid">
+    <property name="title">
+     <string>&amp;Вид</string>
+    </property>
+    <addaction name="actionShowToolbar"/>
+   </widget>
+   <widget class="QMenu" name="menuServise">
+    <property name="title">
+     <string>&amp;Сервис</string>
+    </property>
+    <widget class="QMenu" name="menuScan">
+     <property name="title">
+      <string>Сканирование</string>
+     </property>
+     <property name="icon">
+      <iconset theme="scanner"/>
+     </property>
+     <addaction name="actionScanFile"/>
+     <addaction name="actionScanFloder"/>
+    </widget>
+    <widget class="QMenu" name="menu">
+     <property name="title">
+      <string>Мониторинг</string>
+     </property>
+     <property name="icon">
+      <iconset theme="system-search"/>
+     </property>
+     <addaction name="actionMonitoring"/>
+     <addaction name="actionViwieMonitoring"/>
+    </widget>
+    <addaction name="menuScan"/>
+    <addaction name="separator"/>
+    <addaction name="actionTaskSchedule"/>
+    <addaction name="menu"/>
+   </widget>
    <widget class="QMenu" name="menuFile">
     <property name="title">
      <string>&amp;Файл</string>
@@ -516,20 +1156,64 @@
     <addaction name="separator"/>
     <addaction name="actionExit"/>
    </widget>
-   <widget class="QMenu" name="menuVid">
-    <property name="title">
-     <string>&amp;Вид</string>
-    </property>
-   </widget>
    <addaction name="menuFile"/>
    <addaction name="menuVid"/>
+   <addaction name="menuServise"/>
   </widget>
   <widget class="QStatusBar" name="statusbar">
    <property name="accessibleName">
     <string/>
    </property>
   </widget>
+  <widget class="QToolBar" name="toolBar">
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="cursor">
+    <cursorShape>PointingHandCursor</cursorShape>
+   </property>
+   <property name="windowTitle">
+    <string>toolBar</string>
+   </property>
+   <property name="movable">
+    <bool>false</bool>
+   </property>
+   <property name="allowedAreas">
+    <set>Qt::ToolBarArea::AllToolBarAreas</set>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>30</width>
+     <height>30</height>
+    </size>
+   </property>
+   <property name="floatable">
+    <bool>true</bool>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>LeftToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+   <addaction name="actionScanFile"/>
+   <addaction name="actionScanFloder"/>
+   <addaction name="actionViwieMonitoring"/>
+   <addaction name="separator"/>
+   <addaction name="actionTaskSchedule"/>
+   <addaction name="actionMonitoring"/>
+   <addaction name="separator"/>
+   <addaction name="actionLogout"/>
+   <addaction name="actionExit"/>
+   <addaction name="actionGoHome"/>
+  </widget>
   <action name="actionExit">
+   <property name="icon">
+    <iconset theme="edit-clear"/>
+   </property>
    <property name="text">
     <string>Выход</string>
    </property>
@@ -538,13 +1222,138 @@
    </property>
   </action>
   <action name="actionLogout">
+   <property name="icon">
+    <iconset theme="system-log-out"/>
+   </property>
    <property name="text">
     <string>Выйти из аккаунта</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+L</string>
+   </property>
+  </action>
+  <action name="actionScanFile">
+   <property name="icon">
+    <iconset theme="document-open"/>
+   </property>
+   <property name="text">
+    <string>файла</string>
+   </property>
+   <property name="toolTip">
+    <string>Сканировать файл</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+1</string>
+   </property>
+  </action>
+  <action name="actionScanFloder">
+   <property name="icon">
+    <iconset theme="folder-open"/>
+   </property>
+   <property name="text">
+    <string>папки</string>
+   </property>
+   <property name="toolTip">
+    <string>Сканировать папку</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+2</string>
+   </property>
+  </action>
+  <action name="actionShowToolbar">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Показать панель инструментов</string>
+   </property>
+  </action>
+  <action name="actionTaskSchedule">
+   <property name="icon">
+    <iconset theme="document-open-recent"/>
+   </property>
+   <property name="text">
+    <string>Настроить расписание сканирования</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+3</string>
+   </property>
+  </action>
+  <action name="actionMonitoring">
+   <property name="icon">
+    <iconset theme="applications-development"/>
+   </property>
+   <property name="text">
+    <string>Настроить мониторинг</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+4</string>
+   </property>
+  </action>
+  <action name="actionViwieMonitoring">
+   <property name="icon">
+    <iconset theme="window-new"/>
+   </property>
+   <property name="text">
+    <string>Просмотреть результаты</string>
+   </property>
+   <property name="toolTip">
+    <string>Просмотреть результаты мониторинга</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+5</string>
+   </property>
+  </action>
+  <action name="actionGoHome">
+   <property name="icon">
+    <iconset theme="help-about"/>
+   </property>
+   <property name="text">
+    <string>Перейти на домашнею страницу</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::MenuRole::NoRole</enum>
    </property>
   </action>
  </widget>
  <resources>
   <include location="resources.qrc"/>
  </resources>
- <connections/>
+ <connections>
+  <connection>
+   <sender>toolBar</sender>
+   <signal>visibilityChanged(bool)</signal>
+   <receiver>actionShowToolbar</receiver>
+   <slot>setChecked(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>69</x>
+     <y>272</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>actionShowToolbar</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>toolBar</receiver>
+   <slot>setVisible(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>-1</x>
+     <y>-1</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>69</x>
+     <y>272</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>

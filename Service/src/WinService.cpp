@@ -126,6 +126,8 @@ bool WinService::Initialize()
 
     if (!m_pRpcServer->Start()) { return false; }
 
+    DatabaseLoader::instance().load("c:\\Users\\Public\\ZIoVPO\\signatures.bin");
+
     // Запуск UI во всех существующих сессиях (при старте службы)
     m_pUiClientManager->LaunchUiInAllSessions();
     return true;
