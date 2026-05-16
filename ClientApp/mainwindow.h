@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include <QTimer>
+#include <QString>
 #include <memory>
 #include "ServiceClient.h"
 
@@ -28,6 +29,8 @@ signals:
 private slots:
     void updateWindow();
     void onLogout();
+    void onExit();
+    void scanPath(int);
 
 protected:
     void showEvent(QShowEvent *event) override;
@@ -37,7 +40,7 @@ private:
     Ui::MainWindow *ui;
     void enableAntivirusFeatures(bool enable);
     void createStatusBar();
-    void updateStatusBar(const QString &login, const QString &expirationDate);
+    void updateStatusBar(const QString &, const QString &, const QString &, const QString &);
 
     QTimer m_timer;
     bool m_wasAuthenticated;

@@ -1,12 +1,18 @@
+set(APP_ICON_RC "../ClientApp/resources/service_icon.rc")
+
+
 add_executable(ZIoVPOService
     src/WinService.cpp
+    src/Scanner.cpp
     src/RpcServer.cpp
     src/UiClientManager.cpp
     src/Utils.cpp
     src/AuthManager.cpp
     src/LicenseManager.cpp
     src/HttpClient.cpp
+    src/DatabaseLoader.cpp
     src/main.cpp
+    ${APP_ICON_RC}
 )
 
 include(FetchContent)
@@ -30,6 +36,7 @@ target_link_libraries(ZIoVPOService
     Userenv
     winhttp
     iphlpapi
+    crypt32
 )
 
 install(TARGETS ZIoVPOService

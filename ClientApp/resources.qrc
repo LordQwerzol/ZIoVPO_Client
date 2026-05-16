@@ -6,5 +6,7 @@
         <file>resources/pass_on.png</file>
         <file>resources/event.png</file>
         <file>resources/login.png</file>
+        <file>resources/date_db.png</file>
+        <file>resources/record_cnt.png</file>
     </qresource>
 </RCC>

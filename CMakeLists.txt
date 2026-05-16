@@ -1,6 +1,9 @@
 cmake_minimum_required(VERSION 3.19)
 project(ZIoVPO LANGUAGES CXX)
 
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
 add_subdirectory(Common)
 add_subdirectory(Service)
 add_subdirectory(ClientApp)
@@ -9,7 +12,7 @@ set(CPACK_WIX_VERSION 3)
 set(CPACK_GENERATOR "WIX")
 set(CPACK_PACKAGE_NAME "ZIoVPO")
 set(CPACK_PACKAGE_VENDOR "MTUSI")
-set(CPACK_PACKAGE_VERSION "1.3.0")
+set(CPACK_PACKAGE_VERSION "1.4.1")
 set(CPACK_PACKAGE_DESCRIPTION_SUMMARY "My application with Windows service")
 set(CPACK_PACKAGE_INSTALL_DIRECTORY "ZIoVPO")
 set(CPACK_OUTPUT_FILE_PREFIX "${CMAKE_BINARY_DIR}/packages")

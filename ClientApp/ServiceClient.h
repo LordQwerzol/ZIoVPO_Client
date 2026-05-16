@@ -1,6 +1,10 @@
 #pragma once
 #include <windows.h>
 #include <string>
+#include <vector>
+extern "C" {
+    #include "ServiceRpc.h"
+}
 
 class ServiceClient {
 public:
@@ -19,7 +23,8 @@ public:
     static int Login(const std::wstring& username, const std::wstring& password, std::wstring& outUsername, std::wstring& errorMessage);
     static void Logout();
     static int ActivateProduct(const std::wstring& activationCode, std::wstring& outStatus, std::wstring& outExpirationDate, std::wstring& errorMessage);
-
+    static int GetDatabaseInfo(uint64_t& outTimestamp, uint32_t& outRecordCount, std::wstring& errorMessage);
+    static int ScanPath(const std::wstring& path, std::vector<ThreatInfoRpc>& outThreats, std::wstring& errorMessage);
 private:
     static bool WaitForServiceState(DWORD desiredState, DWORD timeoutMs = 30000);
 };

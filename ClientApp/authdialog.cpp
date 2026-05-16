@@ -1,6 +1,7 @@
 #include "authdialog.h"
 #include "ui_authdialog.h"
 #include "ServiceClient.h"
+#include "DesktopManager.h"
 #include <QMessageBox>
 #include <QRegularExpressionValidator>
 #include <QShortcut>
@@ -14,16 +15,20 @@ AuthDialog::AuthDialog(QWidget *parent)
 {
     ui->setupUi(this);
     ui->stackedWidget->setCurrentWidget(ui->pageAuth);
-    connect(new QShortcut(QKeySequence("Ctrl+Q"), this), &QShortcut::activated, [=](){ ui->cmdExit->animateClick(); });
     connect(ui->cmdPass, &QPushButton::clicked, this, &AuthDialog::slotVisPassword);
     connect(ui->cmdLogin, &QPushButton::clicked, this, &AuthDialog::slotLogin);
     connect(ui->cmdActivate, &QPushButton::clicked, this, &AuthDialog::slotActivate);
-    connect(ui->cmdExit, &QPushButton::clicked, this, [this]() {ServiceClient::StopService();});
 }
 
 AuthDialog::~AuthDialog()
 {
     delete ui;
+}
+void AuthDialog::reject() {
+    if (DesktopManager::confirmation()){
+        ServiceClient::StopService();
+        QDialog::reject();
+    }
 }
 
 void AuthDialog::setMode(Mode mode)

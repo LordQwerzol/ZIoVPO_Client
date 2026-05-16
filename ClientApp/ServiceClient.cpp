@@ -202,3 +202,57 @@ int ServiceClient::ActivateProduct(const std::wstring& activationCode,
         return -1;
     }
 }
+
+int ServiceClient::GetDatabaseInfo(uint64_t& outTimestamp, uint32_t& outRecordCount, std::wstring& errorMessage) {
+    RPC_BINDING_HANDLE hBinding = GetRpcBinding();
+    if (!hBinding) return -1;
+
+    DatabaseInfo result;
+    int ret = ::GetDatabaseInfo(hBinding, &result);
+    RpcBindingFree(&hBinding);
+
+    if (ret == 0) {
+        outTimestamp = result.timestamp;
+        outRecordCount = result.recordCount;
+        return 0;
+    } else {
+        errorMessage = result.errorMessage;
+        return -1;
+    }
+}
+
+int ServiceClient::ScanPath(const std::wstring& path,
+                            std::vector<ThreatInfoRpc>& outThreats,
+                            std::wstring& errorMessage) {
+    RPC_BINDING_HANDLE hBinding = GetRpcBinding();
+    if (!hBinding) return -1;
+
+    ScanResultRpc result;
+    ZeroMemory(&result, sizeof(result));
+    int ret = ::ScanPath(hBinding, path.c_str(), &result);
+    RpcBindingFree(&hBinding);
+
+    if (ret == 0) {
+        outThreats.clear();
+        for (unsigned long i = 0; i < result.threatsCount; ++i) {
+            ThreatInfoRpc threat;
+            threat.filePath = result.threats[i].filePath;                // wchar_t*
+            threat.threatName = result.threats[i].threatName;            // wchar_t*
+            threat.objectTypeString = result.threats[i].objectTypeString; // wchar_t*
+            outThreats.push_back(threat);
+        }
+        // Освобождение памяти
+        if (result.threats) {
+            for (unsigned long i = 0; i < result.threatsCount; ++i) {
+                MIDL_user_free(result.threats[i].filePath);
+                MIDL_user_free(result.threats[i].threatName);
+                MIDL_user_free(result.threats[i].objectTypeString);
+            }
+            MIDL_user_free(result.threats);
+        }
+        return 0;
+    } else {
+        errorMessage = result.errorMessage;
+        return ret;
+    }
+}

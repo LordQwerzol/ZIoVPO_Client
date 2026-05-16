@@ -4,6 +4,18 @@
 #include "ServiceRpc.h"
 #include "AuthManager.h"
 #include "LicenseManager.h"
+#include "DatabaseLoader.h"
+#include "Scanner.h"
+#include "Utils.h"
+
+static std::wstring normalizePath(const std::wstring& path) {
+    std::wstring result = path;
+    for (wchar_t& ch : result) {
+        if (ch == L'/') ch = L'\\';
+    }
+    return result;
+}
+
 
 static HANDLE g_hStopEvent = nullptr;
 
@@ -155,3 +167,89 @@ extern "C" int ActivateProduct(
     wcscpy_s(result->expirationDate, 32, ticket.expirationDate.c_str());
     return 0;
 }
+
+
+int GetDatabaseInfo(
+    handle_t hBinding,
+    DatabaseInfo* result)
+{
+    wcscpy_s(result->errorMessage, L""); // очищаем буфер
+
+    auto& loader = DatabaseLoader::instance();
+    if (!loader.isLoaded()) {
+        wcscpy_s(result->errorMessage, L"Antivirus database not loaded.");
+        return 1;
+    }
+
+    result->timestamp = loader.getTimestamp();
+    result->recordCount = loader.getRecordCount();
+
+    return 0;
+}
+
+int ScanPath(handle_t hBinding, const wchar_t* path, ScanResultRpc* result) {
+    wcscpy_s(result->errorMessage, 256, L"");
+    result->threatsCount = 0;
+    result->threats = nullptr;
+
+    auto& loader = DatabaseLoader::instance();
+    if (!loader.isLoaded()) {
+        wcscpy_s(result->errorMessage, 256, L"Antivirus database not loaded.");
+        return 1;
+    }
+    if (!path || wcslen(path) == 0) {
+        wcscpy_s(result->errorMessage, 256, L"Empty path provided.");
+        return 2;
+    }
+    DWORD attr = GetFileAttributesW(path);
+    if (attr == INVALID_FILE_ATTRIBUTES) {
+        wcscpy_s(result->errorMessage, 256, L"Path does not exist.");
+        return 3;
+    }
+
+    ObjectType expectedType = ObjectType::UNKNOWN;
+
+    std::vector<ThreatInfo> threats;
+    bool isFolder = (attr & FILE_ATTRIBUTE_DIRECTORY) != 0;
+    std::wstring normalizedPath = normalizePath(path);
+    if (!isFolder) {
+        Scanner::instance().scanFile(std::wstring(normalizedPath), expectedType, threats);
+    } else {
+        Scanner::instance().scanFolder(std::wstring(normalizedPath), expectedType, threats);
+    }
+
+    // Заполняем RPC-структуру результата
+    result->threatsCount = static_cast<unsigned long>(threats.size());
+    if (result->threatsCount > 0) {
+        size_t totalSize = result->threatsCount * sizeof(ThreatInfoRpc);
+        result->threats = (ThreatInfoRpc*)MIDL_user_allocate(totalSize);
+        ZeroMemory(result->threats, totalSize);
+
+        for (size_t i = 0; i < threats.size(); ++i) {
+            const auto& t = threats[i];
+
+            // filePath (уже wstring -> wchar_t*)
+            size_t lenPath = t.filePath.size() + 1;
+            wchar_t* wp = (wchar_t*)MIDL_user_allocate(lenPath * sizeof(wchar_t));
+            wcscpy_s(wp, lenPath, t.filePath.c_str());
+
+            // threatName (string -> wstring -> wchar_t*)
+            std::wstring wThreatName = t.threatName;
+            size_t lenName = wThreatName.size() + 1;
+            wchar_t* np = (wchar_t*)MIDL_user_allocate(lenName * sizeof(wchar_t));
+            wcscpy_s(np, lenName, wThreatName.c_str());
+
+            // objectTypeString ( wstring -> wchar_t*)
+            std::wstring wObjType = t.objectTypeString;
+            size_t lenObj = wObjType.size() + 1;
+            wchar_t* op = (wchar_t*)MIDL_user_allocate(lenObj * sizeof(wchar_t));
+            wcscpy_s(op, lenObj, wObjType.c_str());
+
+            result->threats[i].filePath = wp;
+            result->threats[i].threatName = np;
+            result->threats[i].objectTypeString = op;
+        }
+    }
+    return 0;
+}
+

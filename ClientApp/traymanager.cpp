@@ -1,6 +1,5 @@
 #include "traymanager.h"
-
-#include "traymanager.h"
+#include "DesktopManager.h"
 #include "mainwindow.h"
 #include <QSystemTrayIcon>
 #include <QMenu>
@@ -62,5 +61,6 @@ void TrayManager::onOpen()
 
 void TrayManager::onExit()
 {
-    ServiceClient::StopService();
+    if (DesktopManager::confirmation())
+        ServiceClient::StopService();
 }
